@@ -1,0 +1,25 @@
+{
+    "rooms": [
+      {
+        "name": "gully",
+        "description": "YOU ARE STANDING AT THE END OF A ROAD BEFORE A SMALL BRICK BUILDING. AROUND YOU IS A FOREST.  A SMALL STREAM FLOWS OUT OF THE BUILDING AND DOWN A GULLY.",
+        "items": ["spaghetti"]
+      },
+      {
+        "name": "hill",
+        "description": "YOU HAVE WALKED UP A HILL, STILL IN THE FOREST.  THE ROAD SLOPES BACK DOWN THE OTHER SIDE OF THE HILL.  THERE IS A BUILDING IN THE DISTANCE.",
+        "items": []
+      }
+    ],
+    "items": [{
+      "name": "spaghetti",
+      "description": "Spaghetti with skullheads"
+    }],
+    "exits": [{
+      "from": "gully",
+      "to": "hill",
+      "locked": false,
+      "two_way": true,
+      "direction": "n"
+    }]
+}
