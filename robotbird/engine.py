@@ -3,6 +3,9 @@ class HasInventory(object):
         self.inventory = {}
     def add_item(self, item):
         self.inventory[item.name] = item
+    def add_items(self, items):
+        for item in items:
+            self.inventory[item.name] = item
     def remove_item(self, item_name):
         return self.inventory.pop(item_name)
 
