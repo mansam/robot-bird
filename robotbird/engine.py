@@ -18,10 +18,23 @@ class Room(HasInventory):
     def connect(self, direction, room, locked = False):
         self.exits[direction] = Door(room, locked)
 
+    def __repr__(self):
+        output = 'Room({})'.format(self.name)
+        output += '\n\tItems:'
+        for item in self.inventory.values():
+            output += '\n\t\t' + repr(item)
+        output += '\n\tExits:'
+        for dir, exit in self.exits.items():
+            output += '\n\t\t{}:'.format(dir) + repr(exit)
+        return output
+
 class Door(object):
     def __init__(self, target, locked = False):
         self.target = target
         self.locked = locked
+
+    def __repr__(self):
+        return 'Door({})'.format(self.target.name)
 
 class Map(object):
     DIRECTIONS = {"n": "s",
@@ -40,6 +53,12 @@ class Map(object):
         item = source.remove_item(item_name)
         destination.add_item(item)
 
+    def __repr__(self):
+        output = ""
+        for room in self.rooms.values():
+            output += '\n' + repr(room)
+        return output
+
 class Entity(HasInventory):
     def __init__(self, name, description):
         super().__init__()
@@ -50,3 +69,6 @@ class Item(object):
     def __init__(self, name, description):
         self.name = name
         self.description = description
+
+    def __repr__(self):
+        return 'Item({})'.format(self.name)
